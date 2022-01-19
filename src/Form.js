@@ -4,25 +4,31 @@ import React, { useState } from "react";
 import List from "./List";
 
 export default function Form() {
-	const [item, setItem] = useState({ items: [], text: null });
+	const [item, setItem] = useState({ items: [], text: "" });
 
 	function handleChange(event) {
-		if (event.target.value !== "")
+		if (event.target.value)
 			setItem({ items: item.items, text: event.target.value });
 	}
 
 	function handleClick(event) {
 		event.preventDefault();
-		if (item.text) {
+		if (item.text === "") {
 			return alert("Type your next article");
 		} else {
-			setItem({ items: item.items.concat(item.text), text: null });
+			setItem({ items: item.items.concat(item.text), text: "" });
 			console.log(item);
 		}
 	}
 
 	return (
 		<>
+			<div>
+				<button className="btn btn-outline-primary">
+					Items: {item.items.length}
+				</button>
+			</div>
+			<br />
 			<div className="Form input-group mb-3">
 				<button
 					className="btn btn-outline-primary"
@@ -34,14 +40,12 @@ export default function Form() {
 				<input
 					type="text"
 					className="form-control"
-					placeholder=""
 					autoFocus={true}
-					value=""
+					value={item.text}
 					onChange={handleChange}
 				/>
 			</div>
-
-			<List item={item} index={item.length} />
+			<List item={item} />
 		</>
 	);
 }

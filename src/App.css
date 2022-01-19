@@ -1,1 +1,11 @@
 /** @format */
+
+.App {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.List ul {
+    list-style: none;
+    padding: 0;
+}
