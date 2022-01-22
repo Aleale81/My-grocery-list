@@ -7,18 +7,20 @@ export default function Checkbox(props) {
 
 	return (
 		<>
-			<input
-				type="checkbox"
-				value={checked}
-				onChange={() => setChecked((checked) => !checked)}
-			/>{" "}
-			{checked ? (
-				<span>
-					<del>{props.item}</del>
-				</span>
-			) : (
-				<span>{props.item}</span>
-			)}
+			<div className="Checkbox">
+				<input
+					type="checkbox"
+					value={checked}
+					onChange={() => setChecked((checked) => !checked)}
+				/>{" "}
+				{checked ? (
+					<span>
+						<del>{props.item}</del>
+					</span>
+				) : (
+					<span>{props.item}</span>
+				)}
+			</div>
 		</>
 	);
 }

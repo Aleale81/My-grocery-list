@@ -9,3 +9,16 @@
     list-style: none;
     padding: 0;
 }
+
+.Checkbox input {
+    zoom: 1.5;
+}
+
+.Checkbox span {
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+}
+
+.Checkbox del {
+    opacity: 0.4;
+}

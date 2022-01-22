@@ -36,7 +36,7 @@ export default function Form() {
 					onClick={handleClick}
 				>
 					Add
-				</button>
+				</button>{" "}
 				<input
 					type="text"
 					className="form-control"
