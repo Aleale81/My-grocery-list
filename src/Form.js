@@ -16,16 +16,22 @@ export default function Form() {
 		if (item.text === "") {
 			return alert("Type your next article");
 		} else {
-			setItem({ items: item.items.concat(item.text), text: "" });
-			console.log(item);
+			setItem({
+				items: item.items.concat(item.text),
+				text: "",
+			});
 		}
+	}
+
+	function handleRemove(itemName) {
+		console.log(itemName);
 	}
 
 	return (
 		<>
 			<div>
 				<button className="btn btn-outline-primary">
-					Items: {item.items.length}
+					Items: <strong>{item.items.length}</strong>
 				</button>
 			</div>
 			<br />
@@ -35,8 +41,8 @@ export default function Form() {
 					type="button"
 					onClick={handleClick}
 				>
-					Add
-				</button>{" "}
+					<strong>Add</strong>
+				</button>
 				<input
 					type="text"
 					className="form-control"
@@ -45,7 +51,7 @@ export default function Form() {
 					onChange={handleChange}
 				/>
 			</div>
-			<List item={item} />
+			<List list={item} onRemove={handleRemove} />
 		</>
 	);
 }
