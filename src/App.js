@@ -5,8 +5,8 @@ import Form from "./Form";
 
 function App() {
 	return (
-		<div className="App">
-			<h1>My Grocery List</h1>
+		<div className="App container">
+			<h1 className="text-center m-3">My Grocery List</h1>
 			<Form />
 		</div>
 	);
