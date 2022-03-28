@@ -3,16 +3,17 @@
 import React from "react";
 import Checkbox from "./Checkbox";
 
-export default function List({ list, onRemove }) {
+const List = (props) => {
 	return (
 		<div className="List">
 			<ul>
-				{list.items.map((item, index) => (
+				{props.items.map((item, index) => (
 					<li key={index}>
-						<Checkbox itemName={item} onRemove={onRemove} />
+						<Checkbox item={item} />
 					</li>
 				))}
 			</ul>
 		</div>
 	);
-}
+};
+export default List;

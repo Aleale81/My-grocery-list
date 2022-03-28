@@ -2,8 +2,16 @@
 
 import React, { useState } from "react";
 
-export default function Checkbox({ itemName, onRemove }) {
+const Checkbox = (props) => {
 	const [checked, setChecked] = useState(false);
+
+	const article = (
+		<span>
+			<span className="text-capitalize">{props.item.item}, </span>
+			<span>{props.item.quantity}</span>
+			<small>{props.item.unit} </small>
+		</span>
+	);
 	return (
 		<>
 			<div className="Checkbox d-flex justify-content-between">
@@ -16,20 +24,21 @@ export default function Checkbox({ itemName, onRemove }) {
 					{"   "}
 					{checked ? (
 						<span>
-							<del>{itemName}</del>
+							<del>{article}</del>
 						</span>
 					) : (
-						<span>{itemName}</span>
+						<span>{article}</span>
 					)}
 				</div>
 				<button
 					className="btn btn-outline-danger"
 					type="button"
-					onClick={() => onRemove(itemName)}
+					//onClick={() => onRemove(itemName)}
 				>
 					<i className="fa-solid fa-trash-arrow-up"></i>
 				</button>
 			</div>
 		</>
 	);
-}
+};
+export default Checkbox;
