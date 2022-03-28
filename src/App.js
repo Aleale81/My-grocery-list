@@ -20,40 +20,32 @@ const food = [
 
 const App = () => {
 	const [items, setItems] = useState([]);
-	const [emojiId, setEmojiId] = useState(0);
+	const [animation, setAnimation] = useState({ play: false });
 
 	const addItemHandler = (item) => {
-		setEmojiId(items.length);
 		setItems((prevItems) => {
 			return [item, ...items];
 		});
+		setAnimation({ play: true });
 	};
-	console.log(emojiId);
-	console.log(items.length);
 
-	//		if (items.length === 10 && items.length < 20) {
-	//			setEmojiId(items.length - 10);
-	//		}
-	//		if (items.length === 20 && items.length < 30) {
-	//			setEmojiId(items.length - 20);
-	//		}
-	//		if (items.length === 30 && items.length < 40) {
-	//			setEmojiId(items.length - 30);
-	//		}
-	//		if (items.length === 40 && items.length < 50) {
-	//			setEmojiId(items.length - 40);
-	//		}
-	//		if (items.length === 50 && items.length < 60) {
-	//			setEmojiId(items.length - 50);
-	//		}
-	//	};
+	const removeHandler = (itemRemoved) => {
+		console.log(itemRemoved);
+
+		const itemIndex = items.indexOf(itemRemoved);
+		console.log(itemIndex);
+		setItems(
+			items.filter((itemRemoved) => items.indexOf(itemRemoved) !== itemIndex)
+		);
+		setAnimation({ play: false });
+	};
 
 	return (
 		<div className="App">
 			<div className="container mt-3">
-				<Title items={items} foodEmoji={food} emojiId={emojiId} />
+				<Title items={items} foodEmoji={food} animation={animation} />
 				<NewItem onAddItem={addItemHandler} />
-				<List items={items} />
+				<List items={items} onRemove={removeHandler} />
 			</div>
 		</div>
 	);

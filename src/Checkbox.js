@@ -13,32 +13,30 @@ const Checkbox = (props) => {
 		</span>
 	);
 	return (
-		<>
-			<div className="Checkbox d-flex justify-content-between">
-				<div>
-					<input
-						type="checkbox"
-						value={checked}
-						onChange={() => setChecked((checked) => !checked)}
-					/>
-					{"   "}
-					{checked ? (
-						<span>
-							<del>{article}</del>
-						</span>
-					) : (
-						<span>{article}</span>
-					)}
-				</div>
-				<button
-					className="btn btn-outline-danger"
-					type="button"
-					//onClick={() => onRemove(itemName)}
-				>
-					<i className="fa-solid fa-trash-arrow-up"></i>
-				</button>
+		<div className="Checkbox d-flex justify-content-between">
+			<div>
+				<input
+					type="checkbox"
+					value={checked}
+					onChange={() => setChecked((checked) => !checked)}
+				/>
+				{"   "}
+				{checked ? (
+					<span>
+						<del>{article}</del>
+					</span>
+				) : (
+					<span>{article}</span>
+				)}
 			</div>
-		</>
+			<button
+				className="btn btn-outline-danger"
+				type="button"
+				onClick={() => props.onRemove(props.item)}
+			>
+				<i className="fa-solid fa-trash-arrow-up"></i>
+			</button>
+		</div>
 	);
 };
 export default Checkbox;

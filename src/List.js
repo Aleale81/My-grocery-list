@@ -9,7 +9,7 @@ const List = (props) => {
 			<ul>
 				{props.items.map((item, index) => (
 					<li key={index}>
-						<Checkbox item={item} />
+						<Checkbox item={item} onRemove={props.onRemove} />
 					</li>
 				))}
 			</ul>

@@ -30,23 +30,10 @@ const Form = (props) => {
 			};
 			props.onSaveItemData(itemData);
 			setEnteredItem("");
-			setEnteredUnit("pcs");
+			setEnteredUnit("pc");
 			setEnteredQuantity("1");
 		}
 	}
-
-	//	function handleRemove(itemName) {
-	//		const itemIndex = item.items.indexOf(itemName);
-	//		setItem({
-	//			quantity: item.quantity,
-	//			unit: item.unit,
-	//			items: item.items.filter(
-	//				(itemName) => item.items.indexOf(itemName) !== itemIndex
-	//			),
-	//			text: "",
-	//		});
-	//		setAnimation({ play: false });
-	//	}
 
 	return (
 		<div className="Form pb-1">
